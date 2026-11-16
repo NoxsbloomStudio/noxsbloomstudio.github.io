@@ -1,0 +1,66 @@
+:root {
+  color-scheme: dark;
+  --background: #091222;
+  --panel: #111e32;
+  --text: #edf4ff;
+  --muted: #bdcce3;
+  --link: #a9d4ff;
+  --focus: #ffe092;
+  --line: #304663;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: radial-gradient(ellipse at 48% 0, #162f50 0, var(--background) 34rem);
+  color: var(--text);
+  font: 1rem/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+  overflow-wrap: anywhere;
+}
+.wrap { width: min(47rem, calc(100% - 2rem)); margin-inline: auto; }
+.bar { border-bottom: 1px solid var(--line); }
+.bar .wrap, .footer .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  padding-block: 1rem;
+}
+.brand { color: var(--text); font-size: .92rem; font-weight: 750; letter-spacing: .16em; }
+.studio-game, .meta { color: var(--muted); font-size: .9rem; }
+a { color: var(--link); text-underline-offset: .18em; }
+a:hover { color: #e0efff; }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip { position: absolute; top: 0; left: 1rem; translate: 0 -200%; padding: .75rem; background: var(--panel); z-index: 1; }
+.skip:focus { translate: 0 .5rem; }
+main { padding-block: 1.5rem 2.5rem; }
+.languages { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 1.25rem; }
+.languages a, .action {
+  display: inline-block;
+  padding: .55rem .9rem;
+  border: 1px solid #51769d;
+  border-radius: .45rem;
+  background: #182b45;
+  font-weight: 600;
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: .9rem;
+  padding: clamp(1rem, 4vw, 2.7rem);
+  scroll-margin-top: 1rem;
+}
+.card + .card { margin-top: 1.5rem; }
+.card:target { border-color: #648ebd; }
+h1, h2 { line-height: 1.2; font-weight: 700; }
+h1 { margin: 0 0 .65rem; font-size: clamp(1.8rem, 5vw, 2.65rem); }
+h2 { font-size: 1.22rem; margin: 0 0 .65rem; }
+section { margin-top: 1.75rem; }
+p { margin: 0 0 .85rem; }
+section :last-child { margin-bottom: 0; }
+.sources { padding-left: 1.3rem; }
+.footer { border-top: 1px solid var(--line); }
+@media (max-width: 28rem) {
+  .wrap { width: calc(100% - 1.25rem); }
+  .footer .wrap { align-items: flex-start; flex-direction: column; }
+}
